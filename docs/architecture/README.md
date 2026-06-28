@@ -74,9 +74,9 @@ flowchart TB
   end
 
   C1 --> L
-  P -. authenticate/authorize .-> AC
-  B -. message.publish hook .-> RE
-  S -. durable session .-> DS
+  P -.->|"authenticate / authorize"| AC
+  B -.->|"message.publish hook"| RE
+  S -.->|"durable session"| DS
   B <--> RT
   P <--> REG
   Node <--> Cluster
