@@ -154,11 +154,13 @@ flowchart TB
     K1[(Core 1)] --- K2[(Core 2)] --- K3[(Core 3)]
   end
   subgraph Reps["Replicant tier (read-local, forward writes)"]
-    R1[Replicant] R2[Replicant] R3[Replicant]
+    R1[Replicant]
+    R2[Replicant]
+    R3[Replicant]
   end
   R1 -. replication log .-> K1
   R2 -. replication log .-> K2
-  R3 -. forward write (RPC) .-> K1
+  R3 -. forward write via RPC .-> K1
 ```
 
 A reimplementation can start **single-node** (no replication at all) and later adopt this split,
